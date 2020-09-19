@@ -1,0 +1,25 @@
+{
+	"interfaz": {
+		"lang":"es_LA"
+	},
+	"components": {
+		"path": "src/components/"
+	},
+	"users":{
+		"table":"users"
+	},
+	"views":{
+		"default":{
+			"url":"default",
+			"roles":false
+		},
+		"login":{
+			"url":"default/login.html",
+			"roles":false
+		},
+		"home":{
+			"url":"default/home.html",
+			"roles":"any"
+		}
+	}
+}

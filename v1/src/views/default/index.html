@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FlApi</title>
+</head>
+<body>
+	<h3 style="font-family:arial;">View default index</h3>
+	<div>Rutas: {$dominio}{$routesUrl}</div>
+	
+	
+	<h3>Crear Usuario $user</h3>
+	<form action="./@users/new/set" method="post" enctype="multipart/form-data">
+		<input type="text" name="nick" value="daniel">
+		<input type="password" name="password" value="nuevo">
+		<button type="submit"> > </button>
+	</form>
+	
+	<div>
+		<h3>Cosas por hacer</h3>
+		<ul>
+			<li>Validacion de rol jwt<-->db </li>
+			<li>Acceso a vistas por rol</li>
+			<li>Revisar el objeto crud xD porque esta horrible</li>
+			<li>Revisar sanitización</li>
+		</ul>
+
+	</div>
+	<pre id='routes'></pre>
+	<script>
+		fetch("{$dominio}{$routesUrl}")
+		.then(response => {
+			return response.json();
+		})
+		.then(json => {
+			document.getElementById('routes').innerHTML = JSON.stringify(json.data, undefined, 4);
+		})
+		.catch(error => {
+			document.getElementById('routes').innerHTML = JSON.stringify(error, undefined, 4);
+		})
+	</script>
+</body>
+</html>

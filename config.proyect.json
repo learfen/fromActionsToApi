@@ -1,0 +1,22 @@
+{
+	"proyecto": "PG",
+	"encType": "UTF-8",
+	"session":{
+		"secret":"@1bñv35jvkv|ñkjvk|",
+		"authDefault": true,
+		"site-external":false
+	},
+	"url": {
+		"dominio": "http://localhost:8080/",
+		"media": "http://www.powernoticias.com/",
+		"base": "localhost/"
+	},
+	"dbAccess": {
+		"name": "marketplace",
+		"server": "localhost",
+		"user": "root",
+		"pass": ""
+	},
+	"versionActive": "v1",
+	"dbAccessActive": 0
+}
