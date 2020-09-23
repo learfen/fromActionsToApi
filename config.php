@@ -29,7 +29,7 @@
 		"response" => [],
 		"responseType" => "view",
 		"responseHTML"=> "",
-		"view"=>"default"
+		"viewDefault"=>"default"
 	];
 	
     function post(){ return $_POST; }
@@ -57,13 +57,6 @@
 			array_push( $GLOBALS["error"], $data);
 		}
 		return $GLOBALS["error"];
-	}
-
-	function view($data=""){
-		if($data != "" ){
-			return config("views/$data/url");
-		}
-		return config("views/".$GLOBALS["view"]."/url");
 	}
 
 	function responseType($data=""){

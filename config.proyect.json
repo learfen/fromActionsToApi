@@ -14,8 +14,8 @@
 	"dbAccess": {
 		"name": "marketplace",
 		"server": "localhost",
-		"user": "root",
-		"pass": ""
+		"user": "learfen",
+		"pass": "anitha"
 	},
 	"versionActive": "v1",
 	"dbAccessActive": 0

@@ -17,7 +17,7 @@ function auth(){
 }
 
 function actionsAuthDefine($name){
-	// 
+	// consultamos si fueron definidos los permisos para esta accion
 	if(array_key_exists($name, actionsAuth())){
 		$userData = auth();
 		if( !is_bool($userData) 
@@ -41,4 +41,40 @@ function actionsAuthDefine($name){
 		}
 	}
 	return null;
+}
+
+function viewsAuth($query){
+	// consultamos si fueron definidos los permisos para esta vista
+		$userDataObject = auth();
+		$userData = array();
+		foreach ($userDataObject as $key => $value) {
+			$userData[$key] = $value;
+		}
+		# convertimos la query a array para buscar el rol del usuario
+		$error = function($text){ return "<h3>$text</h3>"; };
+		foreach ($query as $key => $value) {
+			# buscamos los roles
+			if($key == "rol"){
+				if(! array_key_exists("rol", $userData)){
+					return false;
+				}
+				return viewRol( $userData["rol"] , $error , $value);
+			}else{
+				if($userData[$key] != $value){
+					responseHTML( $error("Not autorized") );
+				}
+			}
+		}
+		return true;
+}
+
+function viewRol( $rolUser , $error , $rolesAccess){
+	if($value != "any"){
+		$rolesAccess = explode(",", $rolesAccess);
+		if( is_int( array_search($rolUser, $rolesAccess) ) ){
+			return true;
+		}
+		responseHTML( $error("Not autorized") );
+	}
+	return false;
 }

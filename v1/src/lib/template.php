@@ -36,7 +36,7 @@
 		return $layoud;
 	}
 
-	function managerView(string $file , array $data ,  array $components=[]) : string {
+	function managerTemplate(string $file , array $data ,  array $components=[]) : string {
 		/**
 		 * $file = viewName || viewName/file.html
 		 */
@@ -48,7 +48,9 @@
 				$filename
 			] = explode("/", $file);
 		}
-		$body = file_get_contents(path("src/views/$folder/$filename.html"));
+		$filepath = path("src/views/$folder/$filename.html");
+		$filepath = str_replace(".html.html",".html",$filepath);
+		$body = file_get_contents( $filepath );
 		while( strpos($body , "<$") > -1 || strpos($body , '{$') > -1 ){
 			$body = componentsOverwrite( $body , $components);
 			$body = componentsOverwrite( $body , $data);

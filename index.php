@@ -17,13 +17,9 @@
 		require_once "./utils/request.php";
 	}
 
-	responseType( apiManager() === true ? 'api' : '' );
+	responseType( apiManager() === true ? 'api' : 'view' );
 	
 	if(responseType() == 'view'){
-		if( $_SERVER["REQUEST_URI"] != "/"){
-			$data = explode("/" , $_SERVER["REQUEST_URI"]);
-			view($data[1]);
-		}
 		require_once path("./index.php");
 	}
 	response();

@@ -10,16 +10,14 @@
 	},
 	"views":{
 		"default":{
-			"url":"default",
-			"roles":false
+			"if":"default"
 		},
 		"login":{
-			"url":"default/login.html",
-			"roles":false
+			"if":"default/login.html"
 		},
 		"home":{
-			"url":"default/home.html",
-			"roles":"any"
+			"if":[[{"rol":"any"}], "default/home.html"],
+			"else":"login"
 		}
 	}
 }

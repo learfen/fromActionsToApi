@@ -74,3 +74,10 @@ function actionsDefault($actions){
 		});
 	}
 }
+
+function actionsDefaultAfter($name, $data){
+	if(array_key_exists($name, $GLOBALS["actionsDefaultAfter"])){
+		$data = $GLOBALS["actionsDefaultAfter"][$name]($data);
+	}
+	return $data;
+}
