@@ -35,6 +35,9 @@ function response($data=false){
 					echo $GLOBALS["response"];
 				}
 			}
+			if(function_exists("crud")){
+				crud()->close();
+			}
 			die();
 		}
 }

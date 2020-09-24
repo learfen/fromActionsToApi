@@ -22,10 +22,10 @@
 	if(responseType() == 'view'){
 		require_once path("./index.php");
 	}
-	response();
 	if(function_exists("crud")){
 		crud()->close();
 	}
+	response();
 	/*
 	if( ! $GLOBALS['REDIR'] && actionRequest() == "" ){
 		if( isMobile() )
