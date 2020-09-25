@@ -47,7 +47,7 @@ Para una accion con parametro de una entidad, dominio/@entidad/selector/accion/p
           
      }
      
-  }, "root,user") # los roles deben ser declarados segun como se declaren en la db y como se envien estos en el jwt al realizar el login, cuando no se corresponda 
+  }, "root,user") # los roles deben ser declarados segun como se declaren en la db y como se envien estos en el jwt al realizar el login. 
   
   ``` Puede usar como rol la palabra any, que indica que solo debe tener iniciada una sesion en el jwt, en caso de no declarar roles, el valor por defecto se encuentra en el archivo config.proyect.json como session/authDefault con false no requiere una sesión para ejecutar esa acción```
 
